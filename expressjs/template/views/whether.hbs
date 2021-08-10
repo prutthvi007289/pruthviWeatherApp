@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{>htmllink}}
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    {{>nav}}
+    <div class="whether_info">
+        <div class="inputeData">
+        <input type="text" id='cityName' placeholder="Enter the city name">
+        <button class='btn btn-primary' id='submit'>submit</button>
+        </div>
+        <div class="description">
+            <div class="day_info">
+                <p id='day'>day</p>
+                <p id='date'>date/month</p>
+            </div>
+            <div class="temp_info" id='temp_info'>
+                <p id='syntax'>Get Your out put here</p>
+                <div id="temp_data" class="data_hide">
+                <h2 id='temprature'></h2>
+                <h2 id='temp_status'></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{>footer}}
+    <script src="js/main.js"></script>
+    <script>
+        let days = document.getElementById('day');
+        let dates = document.getElementById('date');
+        const day = () => {
+            let day = new Date();
+            var weekday = new Array(7);
+            weekday[0] = "Sunday";
+            weekday[1] = "Monday";
+            weekday[2] = "Tuesday";
+            weekday[3] = "Wednesday";
+            weekday[4] = "Thursday";
+            weekday[5] = "Friday";
+            weekday[6] = "Saturday";
+
+            days.innerHTML = weekday[day.getDay()];
+           
+
+        }
+        const date = () => {
+            
+            let date = new Date();
+            var month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+            let newMonth = month[date.getMonth()]
+            let newDate = date.getDate()
+            // console.log(newMonth)
+            // console.log(newDate)
+             dates.innerHTML = `${newMonth}/ ${newDate}`;
+            }
+        day() ;
+        date();
+        
+            // console.log(currentTime)
+    </script>
+</body>
+</html>
